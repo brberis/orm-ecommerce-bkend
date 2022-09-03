@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Product } = require('../../models');
 
 router.get('/', (req, res) => {
-  Comment.findAll()
-    .then(dbCommentData => res.json(dbCommentData))
+  Product.findAll()
+    .then(dbProductData => res.json(dbProductData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -11,13 +11,15 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // expects {name: 'Some Category'}
-  User.create({
-    username: req.body.username,
-    email: req.body.email,
-    password: req.body.password
+  // expects {product_name: 'Some Product', price: 123, stock: 1, category_is: 1}
+  Product.create({
+    product_name: req.body.username,
+    price: req.body.price,
+    stock: req.body.stock,
+    category_id: req.body.category_id,
+  
   })
-    .then(dbUserData => res.json(dbUserData))
+    .then(dbProductData => res.json(dbProductData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
