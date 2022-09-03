@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS  orm-ecommerce-bkend_db;
+DROP DATABASE IF EXISTS  orm_ecommerce_bkend_db;
 
-CREATE DATABASE  orm-ecommerce-bkend_db;
+CREATE DATABASE  orm_ecommerce_bkend_db;
