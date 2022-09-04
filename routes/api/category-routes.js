@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   // expects {category_name: 'Some Category'}
   Category.create({
-    category_name: req.body.name,
+    category_name: req.body.category_name,
   })
     .then(dbCategoryData => res.json(dbCategoryData))
     .catch(err => {
