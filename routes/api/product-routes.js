@@ -1,8 +1,27 @@
 const router = require('express').Router();
-const { Product, ProductTag } = require('../../models');
+const { Product, Category, Tag, ProductTag } = require('../../models');
 
 router.get('/', (req, res) => {
-  Product.findAll()
+  Product.findAll({
+    attributes: [
+      'id',
+      'product_name',
+      'price',
+      'stock',
+      'category_id'
+    ],
+    include: [
+      {
+        model: Category,
+        attributes: ['id', 'category_name']
+      },
+      {
+        model: Tag,
+        attributes: ['id']    
+      }
+      
+    ]
+  })
     .then(dbProductData => res.json(dbProductData))
     .catch(err => {
       console.log(err);
@@ -11,8 +30,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Product.findAll()
-  .findOne({
+  Product.findOne({
     where: {
       id: req.params.id
     },
@@ -25,7 +43,10 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Category,
-        attributes: ['id', 'category_name'],
+        attributes: ['id', 'category_name']
+      },
+      {
+        model: Tag
       }
     ]
   })

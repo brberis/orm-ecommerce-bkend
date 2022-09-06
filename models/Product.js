@@ -16,9 +16,11 @@ Product.init(
       allowNull: false
     },
     price: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(7,2),
       allowNull: false,
+      get() { return parseFloat(this.getDataValue('price')); },
       validate: {
+        isNumeric: true,
         isDecimal: true
       }
     },
