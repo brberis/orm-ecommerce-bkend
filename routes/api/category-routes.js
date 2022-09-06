@@ -64,11 +64,11 @@ router.post('/', (req, res) => {
     });
 });
 
-// update category
+// update categry
 router.put('/:id', (req, res) => {
-  Post.update(
+  Category.update(
     {
-      title: req.body.category_name
+      category_name: req.body.category_name
     },
     {
       where: {
@@ -78,7 +78,7 @@ router.put('/:id', (req, res) => {
   )
     .then(dbCategoryData => {
       if (!dbCategoryData) {
-        res.status(404).json({ message: 'No category found with this id' });
+        res.status(404).json({ message: 'No tag found with this id' });
         return;
       }
       res.json(dbCategoryData);
@@ -88,6 +88,7 @@ router.put('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+
 
 // delete category
 router.delete('/:id', (req, res) => {
