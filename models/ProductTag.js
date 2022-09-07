@@ -5,11 +5,14 @@ class ProductTag extends Model {}
 
 ProductTag.init(
   {
+    // product-tag id -  integer - doesn't allow null values - set as primary key
+    // uses auto increment
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
+    // product id reference - integer
     product_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -18,6 +21,7 @@ ProductTag.init(
         key: 'id'
       }
     },
+    // tag id reference - integer
     tag_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -35,4 +39,5 @@ ProductTag.init(
     modelName: 'product_tag'
   }
 );
+
 module.exports = ProductTag;
