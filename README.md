@@ -101,7 +101,7 @@ Use Insomnia to try the Restful API implementation with the http methods POST, G
 
 ### Watch this video.
 
-[![Watch the video](https://github.com/brberis/orm-ecommerce-bkend/blob/main/assets/images/video.png?raw=true)](https://youtu.be/)
+[![Watch the video](https://github.com/brberis/orm-ecommerce-bkend/blob/main/assets/images/video.png?raw=true)](https://youtu.be/-PFLMLkFNaY)
 
 
 ## Questions
