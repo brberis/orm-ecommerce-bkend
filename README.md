@@ -74,7 +74,7 @@ Clone this project and run `npm install`. On MySQL CLI create the database with 
     - *String*
     - *Not null*
 
-* `ProductTag`
+* `ProductTag` (Through Table)
   - `id`
     - *Integer*
     - *Not null*
