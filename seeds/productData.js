@@ -1,4 +1,4 @@
-const { Product } = require('../models');
+const { Product, ProductTag } = require('../models');
 
 const productData = [
   {
@@ -24,6 +24,26 @@ const productData = [
   },
 ];
 
-const seedProducts = () => Product.bulkCreate(productData);
+// as we have a nested array, we create inside for loop instead of bulkcreate
+const seedProducts = async function () {
+  for (let i = 0; i < productData.length; i++) {
+    await Product.create(productData[i])
+    .then(product => {
+      // if there's product tags, we need to create pairings to bulk create in the ProductTag model
+      if (productData[i].tagIds.length) {
+        const productTagIdArr = productData[i].tagIds.map((tag_id) => {
+          return {
+            product_id: product.id,
+            tag_id,
+          };
+        });
+        return ProductTag.bulkCreate(productTagIdArr);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+};
 
 module.exports = seedProducts;

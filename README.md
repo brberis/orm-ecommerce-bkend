@@ -23,7 +23,7 @@ Core back-end of e-commerce application developed in Node ExpressJS, Sequelize a
 
 ## Installation
 
-Clone this project and run `npm instsll`. Then seed the tables using `npm run seed`. Finally start the server running this command `npm start`.
+Clone this project and run `npm install`. On MySQL CLI create the database with the following command in the root of the project. `source ./db/schema.sql`.T hen seed the tables using `npm run seed`. Finally start the server running this command `npm start`.
 
 
 ## Database Models
